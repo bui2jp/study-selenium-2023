@@ -24,5 +24,7 @@ docker run -it --rm -w /home -v $(pwd):/home --dns=8.8.8.8 python python ./t001.
 ```
 
 
+## Selenium IDE (chrome extention) 
+pythonのコードを生成することもできる
 
 
