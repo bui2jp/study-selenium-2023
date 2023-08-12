@@ -1,6 +1,6 @@
 # study-selenium-2023
 
-
+![img](./selenium-chrome.drawio.png)
 
 ## docker image
 
