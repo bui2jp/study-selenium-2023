@@ -22,7 +22,7 @@ on:
   #     - run: npm install -g bats
   #     - run: bats -v
   #     - run: echo test...
- obs:
+jobs:
   integration-tests:
     runs-on: ubuntu-latest
 
