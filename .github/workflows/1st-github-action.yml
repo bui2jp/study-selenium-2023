@@ -22,41 +22,41 @@ on:
   #     - run: npm install -g bats
   #     - run: bats -v
   #     - run: echo test...
-jobs:
-  integration-tests:
-    runs-on: ubuntu-latest
+  jobs:
+    integration-tests:
+      runs-on: ubuntu-latest
 
-    services:
-      my-selenium:
-        image: selenium/standalone-chrome:latest
-        ports: 
-          - 4444:4444
-          - 7900:7900
-        options: --shm-size="2g"
+      services:
+        my-selenium:
+          image: selenium/standalone-chrome:latest
+          ports: 
+            - 4444:4444
+            - 7900:7900
+          options: --shm-size="2g"
 
-    steps:
-      - uses: actions/checkout@v3
-      # - name: Get IP Address
-      #   run: echo "##[set-output name=ip;]$(ifconfig eth0 | grep 'inet [0-9\.]* ' -o | sed 's/[^0-9\.]//g')"
-      #   id: ip_addr 
+      steps:
+        - uses: actions/checkout@v3
+        # - name: Get IP Address
+        #   run: echo "##[set-output name=ip;]$(ifconfig eth0 | grep 'inet [0-9\.]* ' -o | sed 's/[^0-9\.]//g')"
+        #   id: ip_addr 
       
-      - name: Setup Pyhon
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+        - name: Setup Pyhon
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.11'
         
-    - name: Install Python dependencies
-      run: |
-        python3 -m pip install --upgrade pip
-        pip3 install -r requirements.txt
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        - name: Install Python dependencies
+          run: |
+            python3 -m pip install --upgrade pip
+            pip3 install -r requirements.txt
+            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Run Tests
-      run: |
-        python3 ./py_test_script/t001.py
-        # python3 -m pytest -v --html=report.html --self-contained-html
-        # python3 -m pytest -v --junitxml=report.xml
-        # python3 -m pytest -v --alluredir=allure-results
-        # allure generate allure-results --clean -o allure-report
-        # allure open allure-report
+        - name: Run Tests
+          run: |
+            python3 ./py_test_script/t001.py
+            # python3 -m pytest -v --html=report.html --self-contained-html
+            # python3 -m pytest -v --junitxml=report.xml
+            # python3 -m pytest -v --alluredir=allure-results
+            # allure generate allure-results --clean -o allure-report
+            # allure open allure-report
 
