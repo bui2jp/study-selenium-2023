@@ -9,7 +9,7 @@ options.add_argument("--start-maximized")
 
 # Selenium Serverに接続
 # driver = webdriver.Remote(command_executor='http://172.22.212.33:4444/wd/hub',
-driver = webdriver.Remote(command_executor='http://selenium:4444/wd/hub',
+driver = webdriver.Remote(command_executor='http://localhost:4444/wd/hub',
 
 options=options)
 
