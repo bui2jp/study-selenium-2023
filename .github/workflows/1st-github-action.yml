@@ -62,6 +62,7 @@ jobs:
 
       - name: Run Tests
         run: |
+          cd py_test_script
           python3 ./t001.py
           # python3 -m pytest -v --html=report.html --self-contained-html
           # python3 -m pytest -v --junitxml=report.xml
