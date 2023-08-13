@@ -46,7 +46,10 @@ jobs:
           python-version: '3.11'
 
       - name: change working directory
-        run: cd py_test_script
+        run: |
+          cd py_test_script
+          pwd
+          ls -l
 
       - name: Install Python dependencies
         run: |
